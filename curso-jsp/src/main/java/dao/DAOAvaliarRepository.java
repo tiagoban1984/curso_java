@@ -35,7 +35,6 @@ public class DAOAvaliarRepository {
 	        ModelAvaliar modelAvaliar = new ModelAvaliar();
 	        modelAvaliar.setId(rs.getLong("id"));
 	        modelAvaliar.setAval1(rs.getString("numero"));
-	        modelAvaliar.setColaboradores_cad_id(daoColaboradoresReository.consultaColaboradorID(rs.getLong("colaboradores_cad_id")));
 	        modelAvaliar.setColaboradores_pai_id(daoColaboradoresReository.consultaColaboradorID(rs.getLong("colaboradores_pai_id")));
 	        
 	        
@@ -49,12 +48,18 @@ public class DAOAvaliarRepository {
 	
 	public void gravaAvaliacao (ModelAvaliar ModelAvaliar) throws Exception {
 		
-		String sql = "insert into avaliacao (numero, colaboradores_pai_id, colaboradores_cad_id) values (?, ?, ?)";
+		String sql = "insert into avaliacao (numero, numero1, numero2, numero21, numero22, numero23, mediavaliacao2, mediavaliacao, colaboradores_pai_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, ModelAvaliar.getAval1());
-		preparedStatement.setLong(2,  ModelAvaliar.getColaboradores_pai_id().getId());
-		preparedStatement.setLong(3,  ModelAvaliar.getColaboradores_cad_id().getId());
+		preparedStatement.setString(2, ModelAvaliar.getAval2());
+		preparedStatement.setString(3, ModelAvaliar.getAval3());
+		preparedStatement.setString(4, ModelAvaliar.getAval21());
+		preparedStatement.setString(5, ModelAvaliar.getAval2());
+		preparedStatement.setString(6, ModelAvaliar.getAval23());
+		preparedStatement.setDouble(7, ModelAvaliar.getMediavaliacao2());
+		preparedStatement.setDouble(8, ModelAvaliar.getMediavaliacao());
+		preparedStatement.setLong(9,  ModelAvaliar.getColaboradores_pai_id().getId());;
 		
 		preparedStatement.execute();
 		

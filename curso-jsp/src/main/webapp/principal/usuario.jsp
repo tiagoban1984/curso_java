@@ -497,6 +497,8 @@ if (modelLogin != null && modelLogin.getPerfil().equals("TREINAMENTO")) {
 					}
 				}
 			</script>
+			</div>
+			</div>
 </body>
 
 </html>

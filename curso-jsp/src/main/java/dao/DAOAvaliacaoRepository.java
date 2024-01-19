@@ -49,7 +49,7 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 		
 		List<ModelLogin> retorno = new ArrayList<ModelLogin>();
 		
-		String sql = "select * from colaboradores where upper(nome) like upper(?)";
+		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao, avaliacao.data FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE upper(colaboradores.nome) LIKE upper(?);";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, "%" + nome + "%");
 		
@@ -62,6 +62,8 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 			modelLogin.setCpf(resultado.getString("cpf"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setSetor(resultado.getString("setor"));
+			modelLogin.setMediavaliacao(resultado.getDouble("mediavaliacao"));
+			modelLogin.setData(resultado.getDate("data"));
 			
 			retorno.add(modelLogin);
 		}
@@ -73,7 +75,7 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 		
 		ModelLogin modelLogin = new ModelLogin();
 		
-		String sql = "select * from colaboradores where id = ? ";
+		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao, avaliacao.data FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE colaboradores.id = ?;";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setLong(1, (id));
 		
@@ -84,6 +86,8 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 			modelLogin.setCpf(resultado.getString("cpf"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setSetor(resultado.getString("setor"));
+			modelLogin.setMediavaliacao(resultado.getDouble("mediavaliacao"));
+			modelLogin.setData(resultado.getDate("data"));
 		}
 		
 		return modelLogin;
@@ -93,7 +97,11 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 		
 		ModelLogin modelLogin = new ModelLogin();
 		
-		String sql = "select * from colaboradores where upper(nome) = upper('?')";
+		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao\r\n"
+				+ "FROM colaboradores\r\n"
+				+ "LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id\r\n"
+				+ "WHERE upper(colaboradores.nome) = upper(?);\r\n"
+				+ "";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, nome);
 		
@@ -104,6 +112,7 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 			modelLogin.setCpf(resultado.getString("cpf"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setSetor(resultado.getString("setor"));
+			modelLogin.setMediavaliacao(resultado.getDouble("mediavaliacao"));
 		}
 		
 		return modelLogin;

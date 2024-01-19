@@ -46,7 +46,7 @@
                                                         <h4 class="sub-title">Avaliação de Colaboradores.</h4>
                                   						 <form class="form-material" action="<%= request.getContextPath() %>/ServletAvaliacaoController" method="post" id="formUser">
                                   						 
-                                  						 <input type="hidden" name="acao" id="acao" value= "">
+                                  						 <input type="hidden" id="acaoRelatorioImprimirTipo" name="acao" id="acao" value= "">
                                   						 
                                   						 
                                                             <div class="form-group form-default form-static-label">
@@ -73,8 +73,29 @@
                                                                 <label class="float-label">Setor:</label>
                                                             </div>
                                                             
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="data" id="data" class="form-control" readonly="readonly" value="${modelLogin.data}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Data avaliação:</label>
+                                                            </div>
+                                                            
+                                                             <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao" id="mediavaliacao" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Habilidade de Comunicação:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao2" id="mediavaliacao2" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao2}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Conhecimento do Produto:</label>
+                                                            </div>
+                                                            
 												            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalAvaliacao"> Buscar Colaborador</button>
-												            <a href="<%= request.getContextPath() %>/ServletAvaliar?iduser=${modelLogin.id}" class="btn btn-primary waves-effect waves-Light" >Avaliar</a>
+ 															<a class="btn btn-primary" href="<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}" onclick="window.open('<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}', 'NomeDaJanela', 'width=800,height=600'); return false;" role="button">Imprimir</a>
+
+ 
+
                                 </form>
                                     <!-- Page-body end -->
                                 </div>
@@ -114,10 +135,9 @@
 			<table class="table" id="tabelaresultados">
 			  <thead>
 			    <tr>
-			    <th scope="col">ID</th>
-				<th scope="col">Nome</th>
-				<th scope="col">CPF</th>
+			    <th scope="col">Nome</th>
 				<th scope="col">Setor</th>
+				<th scope="col">Data</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -142,7 +162,7 @@ function verEditar(id) {
 
 	var urlAction = document.getElementById('formUser').action;
 	
-	window.location.href = urlAction + '?acao=buscarEditar&id='+id;
+	window.location.href = urlAction + '?acao=buscarEditarRel&id='+id;
 	
 }
 
@@ -170,7 +190,7 @@ function verEditar(id) {
 					 $("#ulPaginacaoColaboradoresAjax > li").remove();
 					 
 					  for(var p = 0; p < json.length; p++){
-			   			$('#tabelaresultados > tbody').append('<tr> <td>' +json[p].id+'</td> <td>'+json[p].nome+'</td> <td>'+json[p].cpf+'</td> <td>'+json[p].setor+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
+			   			$('#tabelaresultados > tbody').append('<tr> <td>'+json[p].nome+'</td> <td>'+json[p].setor+'</td> <td>'+json[p].data+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
 			   		}
 			   		
 			   		document.getElementById('totalResultados').textContent = 'Resultados: ' + json.length;

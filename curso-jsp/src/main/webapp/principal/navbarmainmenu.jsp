@@ -65,7 +65,7 @@
                                       </c:if>
                                       
                                       <li class=" ">
-                                          <a href="<%= request.getContextPath() %>/ServletColaboradoresController?acao=ListarUser class="waves-effect waves-dark">
+                                          <a href="<%= request.getContextPath() %>/ServletColaboradoresController?acao=ListarUser" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                               <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Colaboradores</span>
                                               <span class="pcoded-mcaret"></span>
@@ -134,17 +134,18 @@
         
                           </ul>
                           
-                          <!-- 
+                           
         
-                          <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Chart &amp; Maps</div>
+                          <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Relatório</div>
                           <ul class="pcoded-item pcoded-left-item">
                               <li>
-                                  <a href="chart.html" class="waves-effect waves-dark">
+                                  <a href="<%= request.getContextPath() %>/principal/relavaliacoes.jsp" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
+                                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Rel. Avaliações</span>
                                       <span class="pcoded-mcaret"></span>
                                   </a>
                               </li>
+                      <!--
                               <li>
                                   <a href="map-google.html" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
@@ -182,9 +183,9 @@
                                       </li>
                                   </ul>
                               </li>
-        
+        -->
                           </ul>
-        
+        <!--
                           <div class="pcoded-navigation-label" data-i18n="nav.category.other">Other</div>
                           <ul class="pcoded-item pcoded-left-item">
                               <li class="pcoded-hasmenu ">

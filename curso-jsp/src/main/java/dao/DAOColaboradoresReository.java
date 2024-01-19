@@ -242,6 +242,31 @@ public List<ModelLogin> consultaColaboradoresListPaginada(Integer offset) throws
 		return modelLogin;
 	}
 	
+public ModelLogin imprimirRelatorio(Long id) throws Exception {
+		
+		ModelLogin modelLogin = new ModelLogin();
+		
+		String sql = "SELECT colaboradores.*, avaliacao.data, avaliacao.mediavaliacao, avaliacao.mediavaliacao2 FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE colaboradores.id = ?;";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setLong(1, id);
+				
+		ResultSet resultado = statement.executeQuery();
+		
+		while (resultado.next()) {
+			
+			modelLogin.setId(resultado.getLong("id"));
+			modelLogin.setCpf(resultado.getString("cpf"));
+			modelLogin.setNome(resultado.getString("nome"));
+			modelLogin.setSetor(resultado.getString("setor"));
+			modelLogin.setData(resultado.getDate("data"));
+			modelLogin.setMediavaliacao(resultado.getDouble("mediavaliacao"));
+			modelLogin.setMediavaliacao2(resultado.getDouble("mediavaliacao2"));
+			
+		}
+		
+		return modelLogin;
+	}
+	
 	public boolean validarCpf(String cpf) throws Exception {
 		String sql = "select count(1) > 0 as existe from colaboradores where upper(cpf) = upper('"+cpf+"');";
 		

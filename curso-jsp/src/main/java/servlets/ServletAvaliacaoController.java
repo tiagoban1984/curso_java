@@ -1,11 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.List;
-
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -45,7 +41,17 @@ public class ServletAvaliacaoController extends HttpServlet {
 				
 			} 
 			
-			
+			else if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("buscarEditarRel")) {
+				
+				String id = request.getParameter("id");
+				
+				ModelLogin modelLogin = daoAvaliacaoRepository.consultaUsuarioID(Long.parseLong(id));
+				
+				request.setAttribute("msg", "Colaborador Selecionado - OK");
+				request.setAttribute("modelLogin", modelLogin);
+				request.getRequestDispatcher("principal/relavaliacoes.jsp").forward(request, response);
+				
+			}
 			
 			else if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("buscarEditar")) {
 				

@@ -26,6 +26,7 @@ public class ServletAvaliar extends ServletGenericUtil {
 		
 		try {
 		
+		String iduserel = request.getParameter("iduserel");
 		String iduser = request.getParameter("iduser");
 		
 		if (iduser != null && !iduser.isEmpty()) {
@@ -38,12 +39,23 @@ public class ServletAvaliar extends ServletGenericUtil {
 		request.setAttribute("modelLogin", modelLogin);
 		request.getRequestDispatcher("principal/avaliar.jsp").forward(request, response);
 		
-	}	else {
+	}	else if (iduserel != null && !iduserel.isEmpty()) {
+		
+			
+		ModelLogin modelLogin = daoColaboradoresReository.imprimirRelatorio(Long.parseLong(iduserel));
+		
+		List<ModelAvaliar> modelAvaliars = daoAvaliarRepository.listAvaliacao(modelLogin.getId());
+		
+		request.setAttribute("modelAvaliars", modelAvaliars);
+		request.setAttribute("modelLogin", modelLogin);
+		request.getRequestDispatcher("principal/imprimiraval.jsp").forward(request, response);
+		
+	}else {
 			
 					List<ModelLogin> modelLogins = daoColaboradoresReository.consultaColaboradoresList();
 					request.setAttribute("modelLogins", modelLogins);
 					request.setAttribute("totalPagina", daoColaboradoresReository.totalPagina());
-					request.getRequestDispatcher("principal/avaliar.jsp").forward(request, response);
+					request.getRequestDispatcher("principal/imprimiraval.jsp").forward(request, response);
 		}
 		
 	}catch (Exception e) {
@@ -56,17 +68,52 @@ public class ServletAvaliar extends ServletGenericUtil {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 			try {
-		String colaboradores_pai_id = request.getParameter("id");
-		System.out.println(colaboradores_pai_id);
-        String numero = request.getParameter("numero");
-        System.out.println(numero);
+		String colaboradores_pai_id = request.getParameter("idaval");
+        String numero = request.getParameter("aval1");
+        String numero1 = request.getParameter("aval2");
+        String numero2 = request.getParameter("aval3");
         
+        String numero21 = request.getParameter("aval21");
+        String numero22 = request.getParameter("aval22");
+        String numero23 = request.getParameter("aval23");
+        
+        String nota1 = numero;
+        String nota2 = numero1;
+        String nota3 = numero2;
+        
+        String nota21 = numero21;
+        String nota22 = numero22;
+        String nota23 = numero23;
+
+        // Convertendo as strings para números (supondo que são valores numéricos)
+        double nota1Value = Double.parseDouble(nota1);
+        double nota2Value = Double.parseDouble(nota2);
+        double nota3Value = Double.parseDouble(nota3);
+        
+        double nota21Value = Double.parseDouble(nota21);
+        double nota22Value = Double.parseDouble(nota22);
+        double nota23Value = Double.parseDouble(nota23);
+
+        // Calculando a média
+        double media = (nota1Value + nota2Value + nota3Value) / 3;
+        
+        double media2 = (nota21Value + nota22Value + nota23Value) / 3;
 
         ModelAvaliar modelAvaliar = new ModelAvaliar();
         
         modelAvaliar.setAval1(numero);
+        modelAvaliar.setAval2(numero1);
+        modelAvaliar.setAval3(numero2);
+        
+        modelAvaliar.setAval21(numero21);
+        modelAvaliar.setAval22(numero22);
+        modelAvaliar.setAval23(numero23);
+        
+        modelAvaliar.setMediavaliacao(media);
+        
+        modelAvaliar.setMediavaliacao2(media2);
+        
         modelAvaliar.setColaboradores_pai_id(daoColaboradoresReository.consultaColaboradorID(Long.parseLong(colaboradores_pai_id)));
-        modelAvaliar.setColaboradores_cad_id(super.getUserLogadoObjt(request));
         
         daoAvaliarRepository.gravaAvaliacao(modelAvaliar);
         

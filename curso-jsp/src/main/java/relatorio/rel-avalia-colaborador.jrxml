@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel-avalia-colaborador" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3b792c4-d961-488c-8fbb-fa2274536fbb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="setor" class="java.lang.String">
+		<fieldDescription><![CDATA[setor]]></fieldDescription>
+	</field>
+	<field name="data" class="java.sql.Date">
+		<fieldDescription><![CDATA[data]]></fieldDescription>
+	</field>
+	<field name="novo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[novo]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="login" class="java.lang.String">
+		<fieldDescription><![CDATA[login]]></fieldDescription>
+	</field>
+	<field name="perfil" class="java.lang.String">
+		<fieldDescription><![CDATA[perfil]]></fieldDescription>
+	</field>
+	<field name="senha" class="java.lang.String">
+		<fieldDescription><![CDATA[senha]]></fieldDescription>
+	</field>
+	<field name="useradmin" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[useradmin]]></fieldDescription>
+	</field>
+	<field name="mediavaliacao" class="java.lang.Double">
+		<fieldDescription><![CDATA[mediavaliacao]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[cpf]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="mediavaliacao_1" class="java.lang.Double">
+		<fieldDescription><![CDATA[mediavaliacao]]></fieldDescription>
+	</field>
+	<field name="colaboradores_cad_id" class="model.ModelLogin">
+		<fieldDescription><![CDATA[colaboradores_cad_id]]></fieldDescription>
+	</field>
+	<field name="colaboradores_pai_id" class="model.ModelLogin">
+		<fieldDescription><![CDATA[colaboradores_pai_id]]></fieldDescription>
+	</field>
+	<field name="id_1" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="aval2" class="java.lang.String">
+		<fieldDescription><![CDATA[aval2]]></fieldDescription>
+	</field>
+	<field name="avaliacao" class="java.lang.String">
+		<fieldDescription><![CDATA[avaliacao]]></fieldDescription>
+	</field>
+	<field name="aval1" class="java.lang.String">
+		<fieldDescription><![CDATA[aval1]]></fieldDescription>
+	</field>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="-11" y="0" width="586" height="43" uuid="748d1080-beac-4d32-a50f-0f65793b55cc"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Avaliação Colaborador]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="0" width="90" height="30" uuid="a100897e-f67c-444a-864a-ae08c410c2d4"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="43" y="0" width="207" height="20" uuid="fb9a69ef-c291-4bc8-a9a4-b695acf38026"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-18" y="0" width="100" height="30" uuid="0e3d7bd3-5ac0-4620-846a-e2ced0395627"/>
+				<text><![CDATA[Colaborador:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-15" y="20" width="100" height="30" uuid="805d7ead-e5bb-41ca-a00c-570fedaf4438"/>
+				<text><![CDATA[Setor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="14" y="20" width="156" height="20" uuid="28490058-79bf-4ecd-b622-7d15f88ce7f9"/>
+				<textFieldExpression><![CDATA[$F{setor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+</jasperReport>

@@ -201,7 +201,7 @@ if (modelLogin != null && modelLogin.getSetor().equals("POSVENDAS")) {
 <nav aria-label="Page navigation example">
 <ul class="pagination" id="ulPaginacaoColaboradoresAjax">
 </ul>
-
+</nav>
 <span id="totalResultados"></span>
 							      </div>
 							      <div class="modal-footer">
@@ -361,6 +361,8 @@ if (modelLogin != null && modelLogin.getSetor().equals("POSVENDAS")) {
 		}
 	}
 </script>
+</div>
+</div>
 </body>
 
 </html>

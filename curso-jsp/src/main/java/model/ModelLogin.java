@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class ModelLogin implements Serializable {
 
@@ -13,10 +14,37 @@ public class ModelLogin implements Serializable {
 	private String senha;
 	private String setor;
 	private String cpf;
+	private Double mediavaliacao;
+	private Double mediavaliacao2;
+	private Date data;
 	
 	
 	
 	
+		public Double getMediavaliacao2() {
+		return mediavaliacao2;
+	}
+
+	public void setMediavaliacao2(Double mediavaliacao2) {
+		this.mediavaliacao2 = mediavaliacao2;
+	}
+
+		public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+		public Double getMediavaliacao() {
+		return mediavaliacao;
+	}
+
+	public void setMediavaliacao(Double mediavaliacao) {
+		this.mediavaliacao = mediavaliacao;
+	}
+
 		public String getCpf() {
 		return cpf;
 	}

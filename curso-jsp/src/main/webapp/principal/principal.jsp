@@ -46,6 +46,9 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
+    
     
 <jsp:include page="javascriptfile.jsp"></jsp:include>
 </body>
