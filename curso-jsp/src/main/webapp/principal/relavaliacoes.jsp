@@ -91,6 +91,42 @@
                                                                 <label class="float-label">Média - Conhecimento do Produto:</label>
                                                             </div>
                                                             
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao3" id="mediavaliacao3" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao3}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Resiliência:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao4" id="mediavaliacao4" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao4}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Adaptação a Mudanças:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao5" id="mediavaliacao5" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao5}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Ética Profissional:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao6" id="mediavaliacao6" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao6}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Iniciativa:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao7" id="mediavaliacao7" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao7}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Trabalho em Equipe:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediavaliacao8" id="mediavaliacao8" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao8}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Avaliação Pessoal:</label>
+                                                            </div>
+                                                            
 												            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalAvaliacao"> Buscar Colaborador</button>
  															<a class="btn btn-primary" href="<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}" onclick="window.open('<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}', 'NomeDaJanela', 'width=800,height=600'); return false;" role="button">Imprimir</a>
 

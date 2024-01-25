@@ -1,6 +1,10 @@
 <%@page import="model.ModelAvaliar"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+	
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +26,7 @@
 				<div class="pcoded-wrapper">
 
 					<jsp:include page="navbarmainmenu.jsp"></jsp:include>
-
+					
 					<div class="pcoded-content">
 						<!-- Page-header start -->
 
@@ -42,8 +46,37 @@
 
 												<div class="card"></div>
 												<div class="card-block"></div>
+												<form class="form-material" action="<%= request.getContextPath() %>/ServletAvaliar" method="post" id="formUser">
+												<div class="alert alert-primary d-flex" role="alert" style="max-width: 400px;">
+												    <div class="form-group form-default form-static-label">
+												        <!-- Campo Código de Identificação (oculto) -->
+												        <input type="text" name="idaval" id="idaval" class="form-control" readonly="readonly" value="${modelLogin.id}" style="display: none;">
+												        <span class="form-bar"></span>
+												    </div>
+												    
+												   <div class="form-group row" style="margin-bottom: 0px;">
+													    <input type="text" name="nome" id="nome" class="form-control-plaintext" readonly="readonly" value="${modelLogin.nome}" style="height: 30px; text-align: left; width: auto;">
+													    <span class="form-bar"></span>
+													</div>
+
+												</div>
 												<span id="msg">${msg}</span>
-												<div class="alert alert-success" role="alert">
+
+    <script>
+        // Obtém a referência da mensagem
+        var msgElement = document.getElementById('msg');
+
+        // Verifica se a mensagem está presente e não é vazia
+        if (msgElement && msgElement.innerHTML.trim() !== '') {
+            // Exibe um alerta com o conteúdo da mensagem
+            Swal.fire({
+                title: 'Avaliação Encerrada com sucesso!',
+                html: msgElement.innerHTML.trim(),
+                confirmButtonText: 'OK',
+            });
+        }
+    </script>
+												<div class="alert alert-success" role="alert" style="max-width: 600px;">
 												  <h4 class="alert-heading">Atenção!</h4>
 												  <p>Para o preenchimento correto da avaliação, avalie conforme a escala de 1 a 5:</p>
 												  <hr>
@@ -53,27 +86,7 @@
 												  <p class="mb-0">Nota 4: Acima da Expectativa.</p>
 												  <p class="mb-0">Nota 5: Muito Acima da Expectativa.</p>
 												</div>
-													<h4>Avaliação de colaborador.</h4>
-													<br>
-													
-													<form class="form-material" action="<%= request.getContextPath() %>/ServletAvaliar" method="post" id="formUser">
-													<div class="alert alert-primary" role="alert">
-													  <div class="form-group form-default form-static-label">
-                                                                <input type="text" name="idaval" id="idaval" class="form-control" readonly="readonly" value="${modelLogin.id}">
-                                                                <span class="form-bar"></span>
-                                                                <label class="float-label">Código de identificação:</label>
-                                                            </div>
-													<div class="form-group form-default form-static-label">
-                                                                <input type="text" name="nome" id="nome" class="form-control" readonly="readonly" value="${modelLogin.nome}">
-                                                                <span class="form-bar"></span>
-                                                                <label class="float-label">Nome:</label>
-                                                            </div>
-													</div>
-													
-													
-                                                    
-                                                            <br><br>
-													<h5 class="sub-title">1. Habilidade de Comunicação:</h5>
+													<h5><span style="color: red;">1. Habilidade de Comunicação:</span></h5>
 													<br><br><br>
 													<h4>1.1 - Como o vendedor se expressa (sua postura) ao apresentar produtos/serviços aos clientes? </h4>
 													<div class="form-group form-default">
@@ -371,6 +384,808 @@ if (modelAvaliar != null && modelAvaliar.getAval23().equals("5")) {
 	out.print(" ");
 }%>>Nota - 5</option>
 																</select>
+																
+																<br><br><br><br>
+													<h5><span style="color: red;">3. Resiliência:</span></h5>
+													<br><br><br>
+													<h5>3.1 - Como o vendedor lida com a rejeição ou feedback negativo durante as negociações?</h5>
+													<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval31">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<%modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval31().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval31().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval31().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval31().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval31().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																
+															</div>
+															
+												<br><br>
+													<h5>3.2 - Em situações de pressão, como o vendedor mantém o foco e a confiança?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval32">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval32().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval32().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval32().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval32().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval32().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																<br><br><br>
+													<h5>3.3 - Como o vendedor aprende com experiências frustrantes?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval33">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval33().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval33().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval33().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval33().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval33().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select>
+																
+																<br><br><br><br>
+													<h5><span style="color: red;">4. Adaptação a Mudanças:</span></h5>
+													<br><br><br>
+													<h5>4.1 - Como o vendedor se ajusta em relação as mudanças nas estratégias de vendas ou nos produtos/serviços oferecidos?</h5>
+													<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval41">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<%modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval41().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval41().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval41().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval41().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval41().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																
+															</div>
+															
+												<br><br>
+													<h5>4.2 - O vendedor demonstrou flexibilidade diante de mudanças na estratégia?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval42">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval42().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval42().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval42().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval42().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval42().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																<br><br><br>
+													<h5>4.3 - Como foi a resposta do vendedor ao receber as informações sobre às políticas internas da empresa que de alguma forma podem afetar as estratégias de vendas?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval43">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval43().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval43().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval43().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval43().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval43().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select>
+																
+																			<br><br><br><br>
+													<h5><span style="color: red;">5. Ética Profissional:</span></h5>
+													<br><br><br>
+													<h5>5.1 - Como o vendedor lida com situações éticas, incluindo conflitos de interesse?</h5>
+													<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval51">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<%modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval51().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval51().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval51().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval51().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval51().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																
+															</div>
+															
+												<br><br>
+													<h5>5.2 - O vendedor demonstrou disposição em seguir as políticas éticas e os padrões profissionais da empresa, ou houve alguma resistência?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval52">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval52().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval52().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval52().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval52().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval52().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																<br><br><br>
+													<h5>5.3 - O vendedor aceitou de maneira tranquila seguir a trilha de aprendizagem e os prazos estipulados pelo CCDHai?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval53">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval53().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval53().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval53().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval53().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval53().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select>
+																
+																<br><br><br><br>
+													<h5><span style="color: red;">6. Iniciativa:</span></h5>
+													<br><br><br>
+													<h5>6.1 - O vendedor tomou a iniciativa nas simulações, entregando um atendimento conforme exigido nos padrões ONE TOYOTA?</h5>
+													<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval61">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<%modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval61().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval61().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval61().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval61().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval61().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																
+															</div>
+															
+												<br><br>
+													<h5>6.2 - Durante o treinamento, o vendedor contribuiu ativamente para as conversas e mentorias, demonstrando respeito ao se expressar?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval62">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval62().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval62().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval62().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval62().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval62().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																<br><br><br>
+													<h5>6.3 - O vendedor buscou desenvolver as novas habilidades e conhecimentos adquiridos durante o treinamento?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval63">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval63().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval63().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval63().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval63().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval63().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select>
+																
+																<br><br><br><br>
+													<h5><span style="color: red;">7. Trabalho em Equipe:</span></h5>
+													<br><br><br>
+													<h5>7.1 - Como o vendedor colabora com colegas de equipe para atingir metas comuns?</h5>
+													<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval71">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<%modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval71().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval71().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval71().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval71().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval71().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																
+															</div>
+															
+												<br><br>
+													<h5>7.2 - Como o vendedor incentiva a construção de relacionamentos sólidos entre os membros da equipe para fortalecer a colaboração a longo prazo?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval72">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval72().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval72().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval72().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval72().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval72().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																<br><br><br>
+													<h5>7.3 - Como o vendedor lida com conflitos ou desafios interpessoais no ambiente de trabalho?</h5>
+												<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval73">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval73().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval73().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval73().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval73().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval73().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select>
+																
+																<br><br><br><br>
+													<h5><span style="color: red;">8. Feche os Olhos:</span></h5>
+													<br><br><br>
+													<h5>8 - Ao visualizar o novo colaborador atuando como consultor de vendas, em uma escala de 1 a 5, qual é a sua expectativa quanto à sua adaptação à função, desempenho e resultados esperados pela empresa?</h5>
+													<div class="form-group form-default">
+																<select class="form-control"
+																	aria-label="Default select example" name="aval8">
+																	<option disabled="disabled">[Selecione a Nota]</option>
+																	<option value="1"
+																		<%modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval8().equals("1")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 1</option>
+
+																	<option value="2"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval8().equals("2")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 2</option>
+																	<option value="3"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval8().equals("3")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 3</option>
+																   <option value="4"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval8().equals("4")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 4</option>
+																   <option value="5"
+																		<% modelAvaliar = (ModelAvaliar) request.getAttribute("modelAvaliar");
+
+if (modelAvaliar != null && modelAvaliar.getAval8().equals("5")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Nota - 5</option>
+																</select> 
+																
 																<button type="submit"class="btn btn-success waves-effect waves-light">Salvar</button>
 															</div>
 													</form>

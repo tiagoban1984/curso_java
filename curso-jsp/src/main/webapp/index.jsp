@@ -1,99 +1,111 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
+
 <head>
-	<meta charset="ISO-8859-1">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+        crossorigin="anonymous">
 
-<title>Curso JSP</title>
+    <title>Halo</title>
 
-<style type="text/css">
+    <style type="text/css">
+        body {
+            background: url('assets/images/background01.jpg') center/cover no-repeat;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-form{
-	position: absolute;
-	top: 40%;
-	left: 33%;
-	right: 33%;
-	
-}
+        form {
+            position: absolute;
+            top: 40%;
+            left: 33%;
+            right: 33%;
+        }
 
-h5{
-	position: absolute;
-	top: 30%;
-	left: 33%;
-	
-}
+        h5 {
+            position: absolute;
+            top: 30%;
+            left: 33%;
+        }
 
-.msg{
-	position: absolute;
-	top: 10%;
-	left: 33%;
-	font-size: 15px;
-	color: #664d03;
-		background: #fff3cd;
-		border-color: #ffecb5;
-}
-
-</style>
+        .msg {
+            position: absolute;
+            top: 10%;
+            left: 33%;
+            font-size: 15px;
+            color: #664d03;
+            background: #fff3cd;
+            border-color: #ffecb5;
+        }
+    </style>
 
 </head>
+
 <body>
 
+    <h5>Bem vindo ao Halo</h5>
 
-<h5>Bem vindo ao Halo</h5>
+    <form action="<%= request.getContextPath() %>/ServletLogin" method="post"
+    
+        class="row g-3 needs-validation" novalidate>
+        <input type="hidden" value="<%= request.getParameter("url") %>" name="url">
 
-<form action="<%= request.getContextPath() %>/ServletLogin" method="post" class="row g-3 needs-validation" novalidate>
-<input type="hidden" value="<%= request.getParameter("url") %>" name = "url">
+        <div class="mb-3">
+            <label class="form-label">Login</label>
+            <input class="form-control" name="login" type="text" required="required">
+            <div class="invalid-feedback">
+                Informe Login
+            </div>
 
-  <div class="mb-3">
-	<label class="form-label">Login</label>
-	<input class="form-control" name= "login" type="text" required="required">
-	    <div class="invalid-feedback">
-      Informe Login
-    </div>
-	
-  </div>
+        </div>
 
-	<div class="mb-3">
-<label class="form-label">Senha:</label>
-<input class="form-control" name= "senha" type="password" required="required">
-<div class="invalid-feedback">
-      Informe Senha
-    </div>
-	</div>
+        <div class="mb-3">
+            <label class="form-label">Senha:</label>
+            <input class="form-control" name="senha" type="password" required="required">
+            <div class="invalid-feedback">
+                Informe Senha
+            </div>
+        </div>
 
-	<input type="submit" value="Acessar" class="btn btn-primary">
-</form>
+        <input type="submit" value="Acessar" class="btn btn-primary">
+    </form>
+    
 
-<h5 class="msg">${msg}</h5>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <h5 class="msg">${msg}</h5>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-//Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
-  'use strict'
+    <script type="text/javascript">
+        //Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
 
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-</script>
-
-
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
 
 </body>
+
 </html>

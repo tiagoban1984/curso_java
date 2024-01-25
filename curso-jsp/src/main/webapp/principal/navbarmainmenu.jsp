@@ -3,13 +3,20 @@
     
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
-<c:set scope="session" var="perfil" value='<%= request.getSession().getAttribute("perfil").toString() %>'></c:set>
+<c:set scope="session" var="perfil" value='<%= request.getSession().getAttribute("perfil") %>'></c:set>
 
 <nav class="pcoded-navbar">
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
                               <div class="main-menu-header">
+                              <c:if test="${imagemUser != '' && imagemUser != null}">
+                                     <img class="img-80 img-radius" src="${imagemUser}" alt="User-Profile-Image">
+                                  </c:if>
+                                  
+                                  <c:if test="${imagemUser == '' ||  imagemUser == null}">
+                                     <img class="img-80 img-radius" src="<%= request.getContextPath() %>/assets/images/avatar-6.jpg" alt="User-Profile-Image">
+                                  </c:if>
                                   <div class="user-details">
                                       <span id="more-details"><%= session.getAttribute("usuario") %><i class="fa fa-caret-down"></i></span>
                                   </div>
@@ -71,14 +78,15 @@
                                               <span class="pcoded-mcaret"></span>
                                           </a>
                                       </li>
-                                       <!-- 
+                                      <!--   
                                       <li class=" ">
-                                          <a href="button.html" class="waves-effect waves-dark">
+                                          <a href="<%= request.getContextPath() %>/principal/teste.jsp" class="waves-effect waves-dark" style="margin-top: 10px;">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                               <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Button</span>
                                               <span class="pcoded-mcaret"></span>
                                           </a>
                                       </li>
+                                     
                                       <li class=" ">
                                           <a href="tabs.html" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
