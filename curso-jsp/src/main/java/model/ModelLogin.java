@@ -22,10 +22,56 @@ public class ModelLogin implements Serializable {
 	private Double mediavaliacao6;
 	private Double mediavaliacao7;
 	private Double mediavaliacao8;
+	private Double mediatotalhalo;
 	private Date data;
+	private String filial;
+	private String aberturaficha;
+	private String idaval;
+	private String experiencia;
+		
 	
 	
 	
+		public String getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(String experiencia) {
+		this.experiencia = experiencia;
+	}
+
+		public Double getMediatotalhalo() {
+		return mediatotalhalo;
+	}
+
+	public void setMediatotalhalo(Double mediatotalhalo) {
+		this.mediatotalhalo = mediatotalhalo;
+	}
+
+		public String getIdaval() {
+		return idaval;
+	}
+
+	public void setIdaval(String idaval) {
+		this.idaval = idaval;
+	}
+
+		public String getAberturaficha() {
+		return aberturaficha;
+	}
+
+	public void setAberturaficha(String aberturaficha) {
+		this.aberturaficha = aberturaficha;
+	}
+
+		public String getFilial() {
+		return filial;
+	}
+
+	public void setFilial(String filial) {
+		this.filial = filial;
+	}
+
 		public Double getMediavaliacao5() {
 		return mediavaliacao5;
 	}

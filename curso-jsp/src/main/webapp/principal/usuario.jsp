@@ -78,17 +78,9 @@
 																	aria-label="Default select example" name="perfil">
 																	<option disabled="disabled">[Selecione o
 																		Perfil]</option>
-																	<option value="ADMIN"
-																		<%ModelLogin modelLogin = (ModelLogin) request.getAttribute("modelLogin");
-
-if (modelLogin != null && modelLogin.getPerfil().equals("ADMIN")) {
-	out.print(" ");
-	out.print("selected=\"selected\"");
-	out.print(" ");
-}%>>Admin</option>
 
 																	<option value="DIRETORIA"
-																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+																		<%ModelLogin modelLogin = (ModelLogin) request.getAttribute("modelLogin");
 
 if (modelLogin != null && modelLogin.getPerfil().equals("DIRETORIA")) {
 	out.print(" ");
@@ -129,8 +121,147 @@ if (modelLogin != null && modelLogin.getPerfil().equals("TREINAMENTO")) {
 	out.print("selected=\"selected\"");
 	out.print(" ");
 }%>>Treinamento</option>
+																	<option value="VNOVOS"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("VNOVOS")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Vendedor Novos</option>
+																	<option value="VUSADOS"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("VUSADOS")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Vendedor Usados</option>
+																	<option value="CONSULTORPV"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("CONSULTORPV")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Consultor Pos-vendas</option>
+																	<option value="QUALIDADE"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("QUALIDADE")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Qualidade</option>
+																	<option value="ADMINISTRATIVO"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("ADMINISTRATIVO")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Administrativo</option>
+																	<option value="VD"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("VD")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Venda Direta</option>
+																	<option value="LEAD"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("LEAD")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Lead</option>
+																	<option value="GARANTIA"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("GARANTIA")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Garantia</option>
+																	<option value="ENTREGA"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("ENTREGA")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Entrega</option>
+																	<option value="AVALIACAO"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("AVALIACAO")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Avaliação</option>
+																	<option value="RECEPCIONISTA"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("RECEPCIONISTA")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Recepcionista</option>
+																	<option value="LIDERRECEP"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getPerfil().equals("LIDERRECEP")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Lider Recepção</option>
 																</select> <label class="float-label">Perfil:</label>
 															</div>
+															
+															
+															<div class="form-group form-default ">
+																<select class="form-control"
+																	aria-label="Default select example" name="filial">
+																	<option disabled="disabled">[Selecione a
+																		Filial]</option>
+
+																	<option value="MATRIZ"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getFilial().equals("MATRIZ")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Matriz</option>
+																	<option value="ITAJAI"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getFilial().equals("ITAJAI")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Itajai</option>
+																	<option value="BRUSQUE"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getFilial().equals("BRUSQUE")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Brusque</option>
+																	<option value="ILHA"
+																		<%modelLogin = (ModelLogin) request.getAttribute("modelLogin");
+
+if (modelLogin != null && modelLogin.getFilial().equals("ILHA")) {
+	out.print(" ");
+	out.print("selected=\"selected\"");
+	out.print(" ");
+}%>>Ilha</option>
+																</select> <label class="float-label">Filial:</label>
+															</div>
+															
 
 															<div class="form-group form-default ">
 																<input type="text" name="login" id="login"
@@ -499,6 +630,8 @@ if (modelLogin != null && modelLogin.getPerfil().equals("TREINAMENTO")) {
 			</script>
 			</div>
 			</div>
+			
+			
 </body>
 
 </html>

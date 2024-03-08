@@ -73,6 +73,26 @@ b, strong {
 
 .media-left {
   padding-right: 20px; }
+  
+  
+  .rating-buttons {
+    display: flex;
+    gap: 5px; /* Espaçamento entre os botões */
+}
+
+.rating-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: gray; /* Cor padrão das bolas */
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.rating-button.selected {
+    background-color: blue; /* Cor das bolas selecionadas */
+}
 
 /**====== Custom css end ======**/
 /**  =====================

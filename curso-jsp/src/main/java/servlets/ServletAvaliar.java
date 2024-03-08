@@ -99,6 +99,9 @@ public class ServletAvaliar extends ServletGenericUtil {
         
         String numero8 = request.getParameter("aval8");
         
+        String tmpexperiencia = request.getParameter("experiencia");
+        System.out.println(tmpexperiencia);
+        
         String nota1 = numero;
         String nota2 = numero1;
         String nota3 = numero2;
@@ -161,22 +164,24 @@ public class ServletAvaliar extends ServletGenericUtil {
         
         double nota8Value = Double.parseDouble(nota8);
 
-        // Calculando a média
-        double media = (nota1Value + nota2Value + nota3Value) / 3;
+        // Somando nota
+        double media = (nota1Value + nota2Value + nota3Value);
         
-        double media2 = (nota21Value + nota22Value + nota23Value) / 3;
+        double media2 = (nota21Value + nota22Value + nota23Value);
         
-        double media3 = (nota31Value + nota32Value + nota33Value) / 3;
+        double media3 = (nota31Value + nota32Value + nota33Value);
         
-        double media4 = (nota41Value + nota42Value + nota43Value) / 3;
+        double media4 = (nota41Value + nota42Value + nota43Value);
         
-        double media5 = (nota51Value + nota52Value + nota53Value) / 3;
+        double media5 = (nota51Value + nota52Value + nota53Value);
         
-        double media6 = (nota61Value + nota62Value + nota63Value) / 3;
+        double media6 = (nota61Value + nota62Value + nota63Value);
         
-        double media7 = (nota71Value + nota72Value + nota73Value) / 3;
+        double media7 = (nota71Value + nota72Value + nota73Value);
         
         double media8 = nota8Value;
+        
+        double mediahalo = (media + media2 + media3 + media4 + media5 + media6 + media7);
 
         ModelAvaliar modelAvaliar = new ModelAvaliar();
         
@@ -225,6 +230,10 @@ public class ServletAvaliar extends ServletGenericUtil {
         modelAvaliar.setMediavaliacao7(media7);
         
         modelAvaliar.setMediavaliacao8(media8);
+        
+        modelAvaliar.setMediatotalhalo(mediahalo);
+        
+        modelAvaliar.setExperiencia(tmpexperiencia);
         
         modelAvaliar.setColaboradores_pai_id(daoColaboradoresReository.consultaColaboradorID(Long.parseLong(colaboradores_pai_id)));
         

@@ -8,13 +8,14 @@
 <jsp:include page="theme-loader.jsp"></jsp:include>
 
   <body>
-                                   
+                                  
                                         <div class="row">
                                         
                                         <div class="col-sm-12">
                                                 <!-- Basic Form Inputs card start -->
                                                 <div class="card">
-                                                 
+                                                 <img src="/Halo/assets/images/logohai.png" alt="Logo" style="position: absolute; top: 0; left: 0; width: 100px; height: auto;"> 
+                                                 <br><br>
                                                     <div class="card-block">
                                                         <h4 class="sub-title">Avaliação de Colaboradores.</h4>
                                   						 <form class="form-material" action="<%= request.getContextPath() %>/ServletAvaliar" method="post" id="formUser">
@@ -47,6 +48,12 @@
                                                                 <input type="text" name="data" id="data" class="form-control" readonly="readonly" value="${modelLogin.data}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Data avaliação:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="experiencia" id="experiencia" class="form-control" readonly="readonly" value="${modelLogin.experiencia}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Tempo de Experiência:</label>
                                                             </div>
                                                             
                                                              <div class="form-group form-default form-static-label">
@@ -90,11 +97,23 @@
                                                                 <label class="float-label">Média - Trabalho em Equipe:</label>
                                                             </div>
                                                             
-                                                            <div class="form-group form-default form-static-label">
-                                                                <input type="text" name="mediavaliacao8" id="mediavaliacao8" class="form-control" readonly="readonly" value="${modelLogin.mediavaliacao8}">
-                                                                <span class="form-bar"></span>
-                                                                <label class="float-label">Média - Avaliação Pessoal:</label>
-                                                            </div>
+                                                           <div class="row">
+															    <div class="col-md-6">
+															        <div class="form-group form-default form-static-label">
+															        <button type="button" class="btn btn-secondary">Média Halo:
+															        <span id="avaliacao-pessoal-value">${modelLogin.mediatotalhalo}</span>
+															        </button>
+															        
+															        <button type="button" class="btn btn-success">
+																    Média Pessoal: 
+																    <span id="avaliacao-pessoal-value">${modelLogin.mediavaliacao8}</span>
+																	</button>
+															        <br>
+															        </div>
+															    </div>
+															</div>
+
+                                                            
                                                             
 												            <button onClick="window.print()">Imprimir</button>
 												            

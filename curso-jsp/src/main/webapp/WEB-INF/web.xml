@@ -63,4 +63,24 @@
     <servlet-name>ServletAvaliar</servlet-name>
     <url-pattern>/ServletAvaliar</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletParaAtualizarEstadoCheckBox</display-name>
+    <servlet-name>ServletParaAtualizarEstadoCheckBox</servlet-name>
+    <servlet-class>servlets.ServletParaAtualizarEstadoCheckBox</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletParaAtualizarEstadoCheckBox</servlet-name>
+    <url-pattern>/ServletParaAtualizarEstadoCheckBox</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletVideos</display-name>
+    <servlet-name>ServletVideos</servlet-name>
+    <servlet-class>servlets.ServletVideos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletVideos</servlet-name>
+    <url-pattern>/ServletVideos</url-pattern>
+  </servlet-mapping>
 </web-app>

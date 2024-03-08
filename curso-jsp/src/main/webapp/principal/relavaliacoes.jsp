@@ -45,7 +45,10 @@
                                                     <div class="card-block">
                                                         <h4 class="sub-title">Avaliação de Colaboradores.</h4>
                                   						 <form class="form-material" action="<%= request.getContextPath() %>/ServletAvaliacaoController" method="post" id="formUser">
+                                  						 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalAvaliacao"> Buscar Colaborador</button>
+ 															<a class="btn btn-primary" href="<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}" onclick="window.open('<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}', 'NomeDaJanela', 'width=800,height=600'); return false;" role="button">Imprimir</a>
                                   						 
+                                  						 <br><br>
                                   						 <input type="hidden" id="acaoRelatorioImprimirTipo" name="acao" id="acao" value= "">
                                   						 
                                   						 
@@ -77,6 +80,12 @@
                                                                 <input type="text" name="data" id="data" class="form-control" readonly="readonly" value="${modelLogin.data}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Data avaliação:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="experiencia" id="experiencia" class="form-control" readonly="readonly" value="${modelLogin.experiencia}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Tempo de Experiência:</label>
                                                             </div>
                                                             
                                                              <div class="form-group form-default form-static-label">
@@ -127,9 +136,12 @@
                                                                 <label class="float-label">Média - Avaliação Pessoal:</label>
                                                             </div>
                                                             
-												            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalAvaliacao"> Buscar Colaborador</button>
- 															<a class="btn btn-primary" href="<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}" onclick="window.open('<%= request.getContextPath() %>/ServletAvaliar?iduserel=${modelLogin.id}', 'NomeDaJanela', 'width=800,height=600'); return false;" role="button">Imprimir</a>
-
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="mediatotalhalo" id="mediatotalhalo" class="form-control" readonly="readonly" value="${modelLogin.mediatotalhalo}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Média - Total HALO:</label>
+                                                            </div>
+                                                            
  
 
                                 </form>

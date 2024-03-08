@@ -37,6 +37,8 @@ public class ModelAvaliar implements Serializable{
 	
 	private String aval8;
 	
+	private String experiencia;
+	
 	private Double mediavaliacao;
 	private Double mediavaliacao2;
 	private Double mediavaliacao3;
@@ -45,6 +47,7 @@ public class ModelAvaliar implements Serializable{
 	private Double mediavaliacao6;
 	private Double mediavaliacao7;
 	private Double mediavaliacao8;
+	private Double mediatotalhalo;
 	
 	private ModelLogin colaboradores_pai_id;
 	
@@ -54,6 +57,22 @@ public class ModelAvaliar implements Serializable{
 	
 	
 	
+	public String getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(String experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public Double getMediatotalhalo() {
+		return mediatotalhalo;
+	}
+
+	public void setMediatotalhalo(Double mediatotalhalo) {
+		this.mediatotalhalo = mediatotalhalo;
+	}
+
 	public String getAval41() {
 		return aval41;
 	}

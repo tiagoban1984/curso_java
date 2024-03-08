@@ -151,6 +151,7 @@ public class ServletUsuarioContoller extends ServletGenericUtil {
 			String login = request.getParameter("login");
 			String senha = request.getParameter("senha");
 			String perfil = request.getParameter("perfil");
+			String filial = request.getParameter("filial");
 
 			ModelLogin modelLogin = new ModelLogin();
 
@@ -160,6 +161,7 @@ public class ServletUsuarioContoller extends ServletGenericUtil {
 			modelLogin.setLogin(login);
 			modelLogin.setSenha(senha);
 			modelLogin.setPerfil(perfil);
+			modelLogin.setFilial(filial);
 
 			
 

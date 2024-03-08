@@ -43,6 +43,7 @@ public class ServletLogin extends HttpServlet {
 	/*Recebe dados enviados por um formulário*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String url = request.getParameter("url");
@@ -62,6 +63,7 @@ public class ServletLogin extends HttpServlet {
 				
 				request.getSession().setAttribute("usuario", modellogin.getLogin());
 				request.getSession().setAttribute("perfil", modellogin.getPerfil());
+				request.getSession().setAttribute("aberturaficha", modellogin.getAberturaficha());
 				
 				if(url == null || url.equals("null")) {
 					url = "principal/principal.jsp";
@@ -88,6 +90,7 @@ public class ServletLogin extends HttpServlet {
 			request.setAttribute("msg", e.getMessage());
 			redirecionar.forward(request, response);
 		}
+		
 		}
 
 }

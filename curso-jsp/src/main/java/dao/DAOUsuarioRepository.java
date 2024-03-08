@@ -21,7 +21,7 @@ public class DAOUsuarioRepository {
 		
 		if (objeto.isNovo()) {
 		
-		String sql = "INSERT INTO login(login, senha, nome, email, usuario_id, perfil) VALUES (?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO login(login, senha, nome, email, usuario_id, perfil, filial) VALUES (?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement preparedSql = connection.prepareStatement(sql);
 		
 		preparedSql.setString(1, objeto.getLogin());
@@ -30,6 +30,7 @@ public class DAOUsuarioRepository {
 		preparedSql.setString(4, objeto.getEmail());
 		preparedSql.setLong(5, userLogado);
 		preparedSql.setString(6, objeto.getPerfil());
+		preparedSql.setString(7, objeto.getFilial());
 
 		
 		preparedSql.execute();
@@ -40,7 +41,7 @@ public class DAOUsuarioRepository {
 		
 		
 		}else {
-			String sql = "UPDATE login SET login=?, senha=?, nome=?, email=?, perfil=?	WHERE id = "+objeto.getId()+";";
+			String sql = "UPDATE login SET login=?, senha=?, nome=?, email=?, perfil=?, filial=? WHERE id = "+objeto.getId()+";";
 			PreparedStatement preparedSql = connection.prepareStatement(sql);
 			
 			preparedSql.setString(1, objeto.getLogin());
@@ -48,6 +49,7 @@ public class DAOUsuarioRepository {
 			preparedSql.setString(3, objeto.getNome());
 			preparedSql.setString(4, objeto.getEmail());
 			preparedSql.setString(5, objeto.getPerfil());
+			preparedSql.setString(6, objeto.getFilial());
 			
 			preparedSql.executeUpdate();
 			connection.commit();
@@ -77,6 +79,7 @@ public List<ModelLogin> consultaUsuarioListPaginada(Long userLogado, Integer off
 			modelLogin.setNome(resultado.getString("nome"));
 			//modelLogin.setSenha(resultado.getString("senha"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
 			
 			retorno.add(modelLogin);
 		}
@@ -129,6 +132,7 @@ public int totalPagina(Long userLogado) throws Exception {
 			modelLogin.setLogin(resultado.getString("login"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
 			//modelLogin.setSenha(resultado.getString("senha"));
 			
 			retorno.add(modelLogin);
@@ -187,6 +191,7 @@ public int totalPagina(Long userLogado) throws Exception {
 				modelLogin.setNome(resultado.getString("nome"));
 				//modelLogin.setSenha(resultado.getString("senha"));
 				modelLogin.setPerfil(resultado.getString("perfil"));
+				modelLogin.setFilial(resultado.getString("filial"));
 				
 				retorno.add(modelLogin);
 			}
@@ -216,6 +221,7 @@ public int totalPagina(Long userLogado) throws Exception {
 			modelLogin.setLogin(resultado.getString("login"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
 			//modelLogin.setSenha(resultado.getString("senha"));
 			
 			retorno.add(modelLogin);
@@ -243,6 +249,8 @@ public int totalPagina(Long userLogado) throws Exception {
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setUseradmin(resultado.getBoolean("useradmin"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
+			modelLogin.setAberturaficha(resultado.getString("aberturaficha"));
 			
 		}
 		
@@ -269,6 +277,7 @@ public ModelLogin consultaUsuario(String login) throws Exception {
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setUseradmin(resultado.getBoolean("useradmin"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
 			
 		}
 		
@@ -295,6 +304,7 @@ public ModelLogin consultaUsuario(String login) throws Exception {
 			modelLogin.setSenha(resultado.getString("senha"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
 			
 		}
 		
@@ -322,6 +332,7 @@ public ModelLogin consultaUsuarioID(String id, Long userLogado) throws Exception
 			modelLogin.setSenha(resultado.getString("senha"));
 			modelLogin.setNome(resultado.getString("nome"));
 			modelLogin.setPerfil(resultado.getString("perfil"));
+			modelLogin.setFilial(resultado.getString("filial"));
 			
 		}
 		

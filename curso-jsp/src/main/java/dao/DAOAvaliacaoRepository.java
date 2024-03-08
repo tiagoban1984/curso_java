@@ -49,7 +49,7 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 		
 		List<ModelLogin> retorno = new ArrayList<ModelLogin>();
 		
-		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao, avaliacao.mediavaliacao2, avaliacao.mediavaliacao3, avaliacao.mediavaliacao4, avaliacao.mediavaliacao5, avaliacao.mediavaliacao6, avaliacao.mediavaliacao7, avaliacao.mediavaliacao8, avaliacao.data FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE upper(colaboradores.nome) LIKE upper(?);";
+		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao, avaliacao.mediavaliacao2, avaliacao.mediavaliacao3, avaliacao.mediavaliacao4, avaliacao.mediavaliacao5, avaliacao.mediavaliacao6, avaliacao.mediavaliacao7, avaliacao.mediavaliacao8, avaliacao.mediatotalhalo, avaliacao.tmpexperiencia, avaliacao.data FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE upper(colaboradores.nome) LIKE upper(?);";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, "%" + nome + "%");
 		
@@ -70,6 +70,8 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 			modelLogin.setMediavaliacao6(resultado.getDouble("mediavaliacao6"));
 			modelLogin.setMediavaliacao7(resultado.getDouble("mediavaliacao7"));
 			modelLogin.setMediavaliacao8(resultado.getDouble("mediavaliacao8"));
+			modelLogin.setMediatotalhalo(resultado.getDouble("mediatotalhalo"));
+			modelLogin.setExperiencia(resultado.getString("tmpexperiencia"));
 			modelLogin.setData(resultado.getDate("data"));
 			
 			retorno.add(modelLogin);
@@ -82,7 +84,7 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 		
 		ModelLogin modelLogin = new ModelLogin();
 		
-		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao,  avaliacao.mediavaliacao2, avaliacao.mediavaliacao3, avaliacao.mediavaliacao4, avaliacao.mediavaliacao5, avaliacao.mediavaliacao6, avaliacao.mediavaliacao7, avaliacao.mediavaliacao8, avaliacao.data FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE colaboradores.id = ?;";
+		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao,  avaliacao.mediavaliacao2, avaliacao.mediavaliacao3, avaliacao.mediavaliacao4, avaliacao.mediavaliacao5, avaliacao.mediavaliacao6, avaliacao.mediavaliacao7, avaliacao.mediavaliacao8, avaliacao.mediatotalhalo, avaliacao.tmpexperiencia, avaliacao.data FROM colaboradores LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id WHERE colaboradores.id = ?;";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setLong(1, (id));
 		
@@ -101,6 +103,8 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 			modelLogin.setMediavaliacao6(resultado.getDouble("mediavaliacao6"));
 			modelLogin.setMediavaliacao7(resultado.getDouble("mediavaliacao7"));
 			modelLogin.setMediavaliacao8(resultado.getDouble("mediavaliacao8"));
+			modelLogin.setMediatotalhalo(resultado.getDouble("mediatotalhalo"));
+			modelLogin.setExperiencia(resultado.getString("tmpexperiencia"));
 			modelLogin.setData(resultado.getDate("data"));
 		}
 		
@@ -111,7 +115,7 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 		
 		ModelLogin modelLogin = new ModelLogin();
 		
-		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao, avaliacao.mediavaliacao2, avaliacao.mediavaliacao3, avaliacao.mediavaliacao4, avaliacao.mediavaliacao5, avaliacao.mediavaliacao6, avaliacao.mediavaliacao7, avaliacao.mediavaliacao8\r\n"
+		String sql = "SELECT colaboradores.*, avaliacao.mediavaliacao, avaliacao.mediavaliacao2, avaliacao.mediavaliacao3, avaliacao.mediavaliacao4, avaliacao.mediavaliacao5, avaliacao.mediavaliacao6, avaliacao.mediavaliacao7, avaliacao.mediavaliacao8, avaliacao.mediatotalhalo, avaliacao.tmpexperiencia\r\n"
 				+ "FROM colaboradores\r\n"
 				+ "LEFT JOIN avaliacao ON colaboradores.id = avaliacao.colaboradores_pai_id\r\n"
 				+ "WHERE upper(colaboradores.nome) = upper(?);\r\n"
@@ -134,6 +138,8 @@ public int consultaUsuarioListTotalPaginaPaginacao(String nome) throws Exception
 			modelLogin.setMediavaliacao6(resultado.getDouble("mediavaliacao6"));
 			modelLogin.setMediavaliacao7(resultado.getDouble("mediavaliacao7"));
 			modelLogin.setMediavaliacao8(resultado.getDouble("mediavaliacao8"));
+			modelLogin.setMediatotalhalo(resultado.getDouble("mediatotalhalo"));
+			modelLogin.setExperiencia(resultado.getString("tmpexperiencia"));
 		}
 		
 		return modelLogin;
