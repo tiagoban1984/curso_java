@@ -20,11 +20,6 @@
                                                         <h4 class="sub-title">Avaliação de Colaboradores.</h4>
                                   						 <form class="form-material" action="<%= request.getContextPath() %>/ServletAvaliar" method="post" id="formUser">
 													
-													<div class="form-group form-default form-static-label">
-                                                                <input type="text" name="id" id="id" class="form-control" readonly="readonly" value="${modelLogin.id}">
-                                                                <span class="form-bar"></span>
-                                                                <label class="float-label">Código ID:</label>
-                                                            </div>
                                                             
                                                             <div class="form-group form-default form-static-label">
                                                                 <input type="text" name="cpf" id="cpf" class="form-control" readonly="readonly" value="${modelLogin.cpf}">
@@ -48,6 +43,12 @@
                                                                 <input type="text" name="data" id="data" class="form-control" readonly="readonly" value="${modelLogin.data}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Data avaliação:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="avaliador" id="avaliador" class="form-control" readonly="readonly" value="${modelLogin.login}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Quem avaliou:</label>
                                                             </div>
                                                             
                                                             <div class="form-group form-default form-static-label">

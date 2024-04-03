@@ -236,4 +236,9 @@ public class ModelLogin implements Serializable {
 		this.email = email;
 	}
 
+	public void setContador(long long1) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

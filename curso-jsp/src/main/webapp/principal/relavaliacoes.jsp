@@ -52,11 +52,6 @@
                                   						 <input type="hidden" id="acaoRelatorioImprimirTipo" name="acao" id="acao" value= "">
                                   						 
                                   						 
-                                                            <div class="form-group form-default form-static-label">
-                                                                <input type="text" name="id" id="id" class="form-control" readonly="readonly" value="${modelLogin.id}">
-                                                                <span class="form-bar"></span>
-                                                                <label class="float-label">ID:</label>
-                                                            </div>
                                                             
                                                             <div class="form-group form-default form-static-label">
                                                                 <input type="text" name="cpf" id="cpf" class="form-control" readonly="readonly" value="${modelLogin.cpf}">
@@ -80,6 +75,12 @@
                                                                 <input type="text" name="data" id="data" class="form-control" readonly="readonly" value="${modelLogin.data}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Data avaliação:</label>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-default form-static-label">
+                                                                <input type="text" name="avaliador" id="avaliador" class="form-control" readonly="readonly" value="${modelLogin.login}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Quem Avaliou:</label>
                                                             </div>
                                                             
                                                             <div class="form-group form-default form-static-label">
@@ -185,7 +186,7 @@
 			    <tr>
 			    <th scope="col">Nome</th>
 				<th scope="col">Setor</th>
-				<th scope="col">Data</th>
+				<th scope="col">Avaliador</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -238,7 +239,7 @@ function verEditar(id) {
 					 $("#ulPaginacaoColaboradoresAjax > li").remove();
 					 
 					  for(var p = 0; p < json.length; p++){
-			   			$('#tabelaresultados > tbody').append('<tr> <td>'+json[p].nome+'</td> <td>'+json[p].setor+'</td> <td>'+json[p].data+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
+			   			$('#tabelaresultados > tbody').append('<tr> <td>'+json[p].nome+'</td> <td>'+json[p].setor+'</td> <td>'+json[p].login+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
 			   		}
 			   		
 			   		document.getElementById('totalResultados').textContent = 'Resultados: ' + json.length;

@@ -39,6 +39,8 @@ public class ModelAvaliar implements Serializable{
 	
 	private String experiencia;
 	
+	private String login;
+	
 	private Double mediavaliacao;
 	private Double mediavaliacao2;
 	private Double mediavaliacao3;
@@ -57,6 +59,14 @@ public class ModelAvaliar implements Serializable{
 	
 	
 	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 	public String getExperiencia() {
 		return experiencia;
 	}

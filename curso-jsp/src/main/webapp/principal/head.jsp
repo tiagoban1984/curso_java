@@ -3,7 +3,7 @@
 
     
 <head>
-    <title>Hai Toyota - Sistema HALO</title>
+    <title>Hai Toyota - Portal</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -14,10 +14,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="description" content="Hai Toyota, sistema Halo de avaliação de colaboradores." />
+      <meta name="description" content="Hai Toyota - Portal" />
       <meta name="author" content="Tiago Banowits" />
       <!-- Favicon icon -->
-      <link rel="icon" href="<%= request.getContextPath() %>/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="<%= request.getContextPath() %>/assets/images/hai.jpg" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
     <!-- waves.css -->

@@ -50,7 +50,7 @@ public class DAOAvaliarRepository {
 	
 	public void gravaAvaliacao (ModelAvaliar ModelAvaliar) throws Exception {
 		
-		String sql = "INSERT INTO avaliacao (numero, numero1, numero2, numero21, numero22, numero23, numero31, numero32, numero33, numero41, numero42, numero43, numero51, numero52, numero53, numero61, numero62, numero63, numero71, numero72, numero73, numero8, mediavaliacao5, mediavaliacao6, mediavaliacao7, mediavaliacao8, mediavaliacao4, mediavaliacao3, mediavaliacao2, mediavaliacao, mediatotalhalo, tmpexperiencia, colaboradores_pai_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO avaliacao (numero, numero1, numero2, numero21, numero22, numero23, numero31, numero32, numero33, numero41, numero42, numero43, numero51, numero52, numero53, numero61, numero62, numero63, numero71, numero72, numero73, numero8, mediavaliacao5, mediavaliacao6, mediavaliacao7, mediavaliacao8, mediavaliacao4, mediavaliacao3, mediavaliacao2, mediavaliacao, mediatotalhalo, tmpexperiencia, avaliador, colaboradores_pai_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, ModelAvaliar.getAval1());
@@ -85,7 +85,8 @@ public class DAOAvaliarRepository {
 		preparedStatement.setDouble(30, ModelAvaliar.getMediavaliacao());
 		preparedStatement.setDouble(31, ModelAvaliar.getMediatotalhalo());
 		preparedStatement.setString(32, ModelAvaliar.getExperiencia());
-		preparedStatement.setLong(33, ModelAvaliar.getColaboradores_pai_id().getId());
+		preparedStatement.setString(33, ModelAvaliar.getLogin());
+		preparedStatement.setLong(34, ModelAvaliar.getColaboradores_pai_id().getId());
 
 		preparedStatement.executeUpdate();
 

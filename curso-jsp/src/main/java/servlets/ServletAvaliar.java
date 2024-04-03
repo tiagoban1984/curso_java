@@ -69,6 +69,8 @@ public class ServletAvaliar extends ServletGenericUtil {
 	
 			try {
 		String colaboradores_pai_id = request.getParameter("idaval");
+		String login = request.getParameter("login");
+		
         String numero = request.getParameter("aval1");
         String numero1 = request.getParameter("aval2");
         String numero2 = request.getParameter("aval3");
@@ -100,7 +102,6 @@ public class ServletAvaliar extends ServletGenericUtil {
         String numero8 = request.getParameter("aval8");
         
         String tmpexperiencia = request.getParameter("experiencia");
-        System.out.println(tmpexperiencia);
         
         String nota1 = numero;
         String nota2 = numero1;
@@ -236,6 +237,8 @@ public class ServletAvaliar extends ServletGenericUtil {
         modelAvaliar.setExperiencia(tmpexperiencia);
         
         modelAvaliar.setColaboradores_pai_id(daoColaboradoresReository.consultaColaboradorID(Long.parseLong(colaboradores_pai_id)));
+        
+        modelAvaliar.setLogin(login);
         
         daoAvaliarRepository.gravaAvaliacao(modelAvaliar);
         

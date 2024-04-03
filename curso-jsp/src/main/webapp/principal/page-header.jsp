@@ -8,7 +8,7 @@
                                   <div class="col-md-8">
                                       <div class="page-header-title">
                                           <h5 class="m-b-10">Hai Toyota</h5>
-                                          <p class="m-b-0">Bem vindo ao HALO</p>
+                                          <p class="m-b-0">Bem vindo ao Portal</p>
                                       </div>
                                   </div>
                                   <div class="col-md-4">

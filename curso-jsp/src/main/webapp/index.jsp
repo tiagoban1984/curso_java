@@ -9,7 +9,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
         crossorigin="anonymous">
 
-    <title>Halo</title>
+    <title>Portal</title>
 
     <style type="text/css">
         body {
@@ -51,7 +51,7 @@
 
 <body>
 
-    <h5>Bem vindo ao Halo</h5>
+    <h5>Bem vindo</h5>
 
     <form action="<%= request.getContextPath() %>/ServletLogin" method="post"
     
