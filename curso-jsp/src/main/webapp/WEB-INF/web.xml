@@ -83,4 +83,14 @@
     <servlet-name>ServletVideos</servlet-name>
     <url-pattern>/ServletVideos</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletRelVideos</display-name>
+    <servlet-name>ServletRelVideos</servlet-name>
+    <servlet-class>servlets.ServletRelVideos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRelVideos</servlet-name>
+    <url-pattern>/ServletRelVideos</url-pattern>
+  </servlet-mapping>
 </web-app>

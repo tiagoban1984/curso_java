@@ -69,8 +69,8 @@
 																<input type="email" name="email" id="email"
 																	class="form-control" required="required"
 																	autocomplete="off" value="${modelLogin.email}">
-																<span class="form-bar"></span> <label
-																	class="float-label">E-mail:</label>
+																<span class="form-bar"></span> 
+																<label class="float-label">E-mail:</label>
 															</div>
 
 															<div class="form-group form-default ">

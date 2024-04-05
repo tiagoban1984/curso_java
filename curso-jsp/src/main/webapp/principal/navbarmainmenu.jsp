@@ -115,6 +115,13 @@
 					data-i18n="nav.form-components.main">Rel. Avaliações</span> <span
 					class="pcoded-mcaret"></span>
 			</a></li>
+			<li><a
+				href="<%=request.getContextPath()%>/principal/relvideos.jsp"
+				class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+						class="ti-layers"></i><b>FC</b></span> <span class="pcoded-mtext"
+					data-i18n="nav.form-components.main">Rel. Videos</span> <span
+					class="pcoded-mcaret"></span>
+			</a></li>
 		</ul>
 		</c:if>
 		<c:if test="${perfil == 'ADMIN' || perfil == 'TI' || perfil == 'VENDAS' || perfil == 'TREINAMENTO' || perfil == 'VNOVOS' || perfil == 'VUSADOS' || perfil == 'VD'  || perfil == 'LEAD'  || perfil == 'AVALIACAO'  || perfil == 'ENTREGA'  || perfil == 'RECEPCIONISTA'}">
@@ -182,7 +189,15 @@
 								class="pcoded-mcaret"></span>
 						</a>
 							<ul class="pcoded-submenu">
-								<li class=""><a href="<%=request.getContextPath()%>/principal/testando.jsp"
+								<li class=""><a href="javascript:void(0)"
+									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+											class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+										data-i18n="nav.menu-levels.menu-level-22.menu-level-31">CRMGOLD
+											</span> <span class="pcoded-mcaret"></span>
+								</a></li>
+							</ul>
+							<ul class="pcoded-submenu">
+								<li class=""><a href="<%=request.getContextPath()%>/principal/vn-nbs-aberturaficha.jsp"
 									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
 											class="ti-angle-right"></i></span> <span class="pcoded-mtext"
 										data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Abertura
@@ -366,19 +381,35 @@
 						</a></li>
 					</ul></li>
 
-				<li class=""><a href="javascript:void(0)"
+				<li class="pcoded-hasmenu "><a href="javascript:void(0)"
 					class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-							class="ti-angle-right"></i></span> <span class="pcoded-mtext"
-						data-i18n="nav.menu-levels.menu-level-23">Financeiro</span> <span
-						class="pcoded-mcaret"></span>
-				</a></li>
+							class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
+						data-i18n="nav.menu-levels.menu-level-22.main">Financeiro</span>
+						<span class="pcoded-mcaret"></span>
+				</a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Informações Gerais</span> 
+								<span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul></li>
 
-				<li class=""><a href="javascript:void(0)"
+				<li class="pcoded-hasmenu "><a href="javascript:void(0)"
 					class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-							class="ti-angle-right"></i></span> <span class="pcoded-mtext"
-						data-i18n="nav.menu-levels.menu-level-23">Consórcio</span> <span
-						class="pcoded-mcaret"></span>
-				</a></li>
+							class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
+						data-i18n="nav.menu-levels.menu-level-22.main">Consórcio</span>
+						<span class="pcoded-mcaret"></span>
+				</a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Introdução ao Consórcio</span> 
+								<span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul></li>
 
 				<li class="pcoded-hasmenu "><a href="javascript:void(0)"
 					class="waves-effect waves-dark"> <span class="pcoded-micon"><i
@@ -386,6 +417,14 @@
 						data-i18n="nav.menu-levels.menu-level-22.main">Unico Auto</span> <span
 						class="pcoded-mcaret"></span>
 				</a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Introdução Processos de Vendas
+									</span> <span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul>
 					<ul class="pcoded-submenu">
 						<li class=""><a href="javascript:void(0)"
 							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
@@ -423,6 +462,29 @@
 									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
 								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">One
 									Toyota</span> <span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul></li>
+					
+					<li class="pcoded-hasmenu "><a href="javascript:void(0)"
+					class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+							class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
+						data-i18n="nav.menu-levels.menu-level-22.main">One Toyota</span> 
+						<span class="pcoded-mcaret"></span>
+				</a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">O que é ONE TOYOTA</span> 
+								<span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">PDF - Perguntas e Respostas OT</span> 
+								<span class="pcoded-mcaret"></span>
 						</a></li>
 					</ul></li>
 
@@ -713,28 +775,6 @@
 							</a></li>
 						</ul></li>
 
-					<li class="pcoded-hasmenu "><a href="javascript:void(0)"
-						class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-								class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
-							data-i18n="nav.menu-levels.menu-level-22.main">Unico Auto</span>
-							<span class="pcoded-mcaret"></span>
-					</a>
-						<ul class="pcoded-submenu">
-							<li class=""><a href="javascript:void(0)"
-								class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-										class="ti-angle-right"></i></span> <span class="pcoded-mtext"
-									data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Treinamento
-										1</span> <span class="pcoded-mcaret"></span>
-							</a></li>
-						</ul>
-						<ul class="pcoded-submenu">
-							<li class=""><a href="javascript:void(0)"
-								class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-										class="ti-angle-right"></i></span> <span class="pcoded-mtext"
-									data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Treinamento
-										2</span> <span class="pcoded-mcaret"></span>
-							</a></li>
-						</ul></li>
 
 					<li class="pcoded-hasmenu "><a href="javascript:void(0)"
 						class="waves-effect waves-dark"> <span class="pcoded-micon"><i
@@ -759,19 +799,58 @@
 							</a></li>
 						</ul></li>
 
-					<li class=""><a href="javascript:void(0)"
-						class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-								class="ti-angle-right"></i></span> <span class="pcoded-mtext"
-							data-i18n="nav.menu-levels.menu-level-23">Financeiro</span> <span
-							class="pcoded-mcaret"></span>
-					</a></li>
+					<li class="pcoded-hasmenu "><a href="javascript:void(0)"
+					class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+							class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
+						data-i18n="nav.menu-levels.menu-level-22.main">Financeiro</span>
+						<span class="pcoded-mcaret"></span>
+				</a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Informações Gerais</span> 
+								<span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul></li>
 
-					<li class=""><a href="javascript:void(0)"
+				<li class="pcoded-hasmenu "><a href="javascript:void(0)"
+					class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+							class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
+						data-i18n="nav.menu-levels.menu-level-22.main">Consórcio</span>
+						<span class="pcoded-mcaret"></span>
+				</a>
+					<ul class="pcoded-submenu">
+						<li class=""><a href="javascript:void(0)"
+							class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+									class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+								data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Introdução ao Consórcio</span> 
+								<span class="pcoded-mcaret"></span>
+						</a></li>
+					</ul></li>
+					
+					<li class="pcoded-hasmenu "><a href="javascript:void(0)"
 						class="waves-effect waves-dark"> <span class="pcoded-micon"><i
-								class="ti-angle-right"></i></span> <span class="pcoded-mtext"
-							data-i18n="nav.menu-levels.menu-level-23">Consórcio</span> <span
-							class="pcoded-mcaret"></span>
-					</a></li>
+								class="ti-direction-alt"></i></span> <span class="pcoded-mtext"
+							data-i18n="nav.menu-levels.menu-level-22.main">Unico Auto</span>
+							<span class="pcoded-mcaret"></span>
+					</a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="javascript:void(0)"
+								class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+										class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+									data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Treinamento
+										1</span> <span class="pcoded-mcaret"></span>
+							</a></li>
+						</ul>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="javascript:void(0)"
+								class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+										class="ti-angle-right"></i></span> <span class="pcoded-mtext"
+									data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Treinamento
+										2</span> <span class="pcoded-mcaret"></span>
+							</a></li>
+						</ul></li>
 
 
 
